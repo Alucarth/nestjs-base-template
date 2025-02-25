@@ -24,8 +24,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
-
+[Nest](https://github.com/nestjs/nest) Sistema  de Tramites Ministerio de Educación
 ## Project setup
 
 ```bash
@@ -71,28 +70,53 @@ $ mau deploy
 
 With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
 
-## Resources
+## Module Structure Proyect
 
-Check out a few resources that may come in handy when working with NestJS:
+```bash
+  /src
+  │── /modules
+  │   ├── /auth       → Módulo de autenticación (JWT, Passport, OAuth, etc.)
+  │   │   ├── auth.controller.ts
+  │   │   ├── auth.module.ts
+  │   │   ├── auth.service.ts
+  │   │   ├── jwt.strategy.ts
+  │   │   ├── local.strategy.ts
+  │   ├── /users      → Módulo de usuarios (CRUD, perfiles, roles)
+  │   │   ├── users.controller.ts
+  │   │   ├── users.module.ts
+  │   │   ├── users.service.ts
+  │   │   ├── users.entity.ts
+  │   ├── /products   → Módulo de productos (si aplica)
+  │   │   ├── products.controller.ts
+  │   │   ├── products.module.ts
+  │   │   ├── products.service.ts
+  │   │   ├── products.entity.ts
+  │── /common         → Código compartido entre módulos
+  │   ├── /decorators
+  │   ├── /filters
+  │   ├── /interceptors
+  │   ├── /guards
+  │   ├── /middlewares
+  │── /config         → Configuración del proyecto
+  │   ├── config.module.ts
+  │   ├── config.service.ts
+  │   ├── constants.ts
+  │── /database       → Conexión a la base de datos y repositorios
+  │   ├── database.module.ts
+  │   ├── database.service.ts
+  │── /core           → Lógica central del negocio (si aplica)
+  │── main.ts         → Punto de entrada de la aplicación
+  │── app.module.ts   → Módulo raíz
+  │── .env            → Variables de entorno
+  │── tsconfig.json   → Configuración de TypeScript
+  │── package.json    → Dependencias del proyecto
+```
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
 
 ## Stay in touch
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+- Author - [Leandro David Torrez Salinas](https://github.com/Alucarth)
+
 
 ## License
 
