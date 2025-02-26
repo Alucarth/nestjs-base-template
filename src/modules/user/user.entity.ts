@@ -1,17 +1,7 @@
-import {
-  Column,
-  CreateDateColumn,
-  DeleteDateColumn,
-  Entity,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
-
+import { Column, Entity } from 'typeorm';
+import { BaseEntity } from 'src/common/model/base.entity';
 @Entity('users')
-export class User {
-  @PrimaryGeneratedColumn()
-  id: number;
-
+export class User extends BaseEntity {
   @Column()
   username: string;
 
@@ -38,13 +28,4 @@ export class User {
 
   @Column({ default: false })
   has_access: boolean;
-
-  @CreateDateColumn()
-  created_at: Date; // Creation date
-
-  @UpdateDateColumn()
-  updated_at: Date; // Last updated date
-
-  @DeleteDateColumn()
-  deleted_at: Date; // Deletion date
 }
