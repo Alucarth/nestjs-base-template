@@ -1,9 +1,16 @@
-import { Column, Entity } from 'typeorm';
-import { BaseEntity } from 'src/common/model/base.entity';
+import { TimestampedEntity } from 'src/common/timestamp.entity';
+import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+
 @Entity('users')
-export class User extends BaseEntity {
+export class User {
+  @PrimaryGeneratedColumn()
+  id: number;
+
   @Column()
   username: string;
+
+  @Column()
+  password: string;
 
   @Column()
   identity_card: string;
@@ -28,4 +35,13 @@ export class User extends BaseEntity {
 
   @Column({ default: false })
   has_access: boolean;
+
+  @Column({ type: 'varchar', length: 300 })
+  created_by: string;
+
+  @Column({ type: 'varchar', length: 300 })
+  last_changed_by: string;
+
+  @Column(() => TimestampedEntity, { prefix: false })
+  timestamp: TimestampedEntity;
 }

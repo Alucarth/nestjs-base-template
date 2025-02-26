@@ -6,7 +6,7 @@ import { AuthModule } from './modules/auth/auth.module';
 import { ProcedureTypeModule } from './data/modules/procedure_type/procedure_type.module';
 
 @Module({
-  imports: [ DatabaseModule, UserModule, AuthModule, ProcedureTypeModule],
+  imports: [DatabaseModule, UserModule, AuthModule, ProcedureTypeModule],
   providers: [AppService],
 })
 export class AppModule {}
