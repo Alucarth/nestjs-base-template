@@ -1,4 +1,4 @@
-import { TimestampedEntity } from 'src/common/timestamp.entity';
+import { TimestampEntity } from 'src/common/model/timestamp.entity';
 import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity('users')
@@ -42,6 +42,6 @@ export class User {
   @Column({ type: 'varchar', length: 300 })
   last_changed_by: string;
 
-  @Column(() => TimestampedEntity, { prefix: false })
-  timestamp: TimestampedEntity;
+  @Column(() => TimestampEntity, { prefix: false })
+  timestamp: TimestampEntity;
 }
