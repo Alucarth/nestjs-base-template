@@ -12,7 +12,7 @@ export class User {
   @Column()
   password: string;
 
-  @Column()
+  @Column({ unique: true })
   identity_card: string;
 
   @Column()
@@ -27,7 +27,7 @@ export class User {
   @Column({ nullable: true })
   birth_date: Date;
 
-  @Column({ nullable: true })
+  @Column({ unique: true, nullable: true })
   email: string;
 
   @Column({ nullable: true })
