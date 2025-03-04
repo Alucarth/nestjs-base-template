@@ -4,8 +4,8 @@ import { AppService } from './app.service';
 import { DatabaseModule } from './database/database.module';
 import { UserModule } from './modules/user/user.module';
 import { AuthModule } from './modules/auth/auth.module';
-import { ProcedureTypeModule } from './data/modules/procedure_type/procedure_type.module';
 import { ConfigModule } from '@nestjs/config';
+import { UploadModule } from './modules/upload/upload.module';
 
 @Module({
   imports: [
@@ -15,7 +15,7 @@ import { ConfigModule } from '@nestjs/config';
     DatabaseModule,
     UserModule,
     AuthModule,
-    ProcedureTypeModule,
+    UploadModule,
   ],
   providers: [AppService],
 })

@@ -10,11 +10,12 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
       jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
       ignoreExpiration: false,
       secretOrKey:
-        configService.get<string>('JWT_SECRET_KEY') || 'defaultSecretKey',
+        configService.get<string>('JWT_SECRET_KEY') || 'keyrus-secret',
     });
   }
 
   validate(payload: any) {
+    // console.log('payload jwt strategy', payload); // jwt format return
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
     return { user_id: payload.sub, username: payload.username };
   }

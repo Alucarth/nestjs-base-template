@@ -10,13 +10,26 @@ export class AuthService {
 
   constructor(
     private readonly jwtService: JwtService,
-    private readonly userService: UserService,
+    private userService: UserService,
   ) {}
+
+  // async validateUser(username: string, pass: string): Promise<any> {
+  //   const user = await this.userService.findOne(username);
+  //   if (user && user.password === pass) {
+  //     // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  //     const { password, ...result } = user;
+  //     return result;
+  //   }
+  //   return null;
+  // }
 
   async validateUser(username: string, pass: string): Promise<any> {
     const user = await this.userService.findOne(username);
+    console.log('user', user);
     if (user && (await this.comparePasswords(pass, user.password))) {
-      const { password, ...result } = user; // eslint-disable-line @typescript-eslint/no-unused-vars
+      const { password, ...result } = user;
+      console.log('result', result);
+      console.log('password', password);
       return result;
     }
     return null;
@@ -24,8 +37,10 @@ export class AuthService {
 
   // eslint-disable-next-line @typescript-eslint/require-await
   async login(user: any) {
+    console.log('user_loign', user);
     // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
     const payload = { username: user.username, sub: user.id };
+    console.log('payload', payload);
     return {
       access_token: this.jwtService.sign(payload),
     };
