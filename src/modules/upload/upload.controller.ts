@@ -24,9 +24,8 @@ export class UploadController {
   @UseInterceptors(
     FileInterceptor('file', {
       storage: diskStorage({
-        destination: (req, file, cb) => {
-          console.log(req.user);
-          const user_id = 1;
+        destination: (req: any, file, cb) => {
+          const user_id = req.user?.user_id; // return { user_id: 1, username: '6047054' }
           const uploadPath = `uploads/${user_id}`;
 
           if (!existsSync(uploadPath)) {
@@ -38,6 +37,9 @@ export class UploadController {
         filename: (req, file, cb) => {
           const uniqueSuffix =
             Date.now() + '-' + Math.round(Math.random() * 1e9);
+          // console.log('file', file);
+          // console.log('originalname', file.originalname);
+          // console.log('extname ', extname(file.originalname)); /file extension
           cb(
             null,
             file.fieldname + '-' + uniqueSuffix + extname(file.originalname),
@@ -50,7 +52,8 @@ export class UploadController {
     @UploadedFile() file: Express.Multer.File,
     @Req() req: AuthenticatedRequest,
   ) {
-    const user_id = req.user?.id;
+    // console.log(req.user);
+    const user_id = req.user?.user_id;
     return { filename: file.filename, path: file.path, user_id };
   }
 }
