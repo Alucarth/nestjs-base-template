@@ -112,7 +112,7 @@ With Mau, you can deploy your application in just a few clicks, allowing you to 
 ```
 
 
-## Stay in touch
+## Dev
 
 - Author - [Leandro David Torrez Salinas](https://github.com/Alucarth)
 
